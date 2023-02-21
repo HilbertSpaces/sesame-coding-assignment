@@ -28,11 +28,32 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.button{
+  height: 5vmin;
+  width: 10vmin;
+  background-color:black;
+  color:white;
+}
+
+.move{
+  position:fixed;
+  left: 30px;
+  top: 10px;
+}
+
+.buttonClass{
+  background-color: #1d1d1d;
+  width: 30vmin;
+  height:5vmin;
+}
+
+#buy{
+  margin-left: -18vmin;
+  width: 5.5vmin;
+}
+
+.verify{
+  margin-top:-4.2vmin;
+  margin-left:-6vmin;
 }
