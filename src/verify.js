@@ -11,7 +11,7 @@ export default function VerifyButton() {
     const [hasBalance, setHasBalance] = useState(false);
     const [account, setAccount] = useState("");
     const [couponCode, setCouponCode] = useState("");
-    const url = 'http://127.0.0.1:5000/?';
+    const url = 'https://sesame-coding-lab.herokuapp.com/';
 
     async function verify() {
         const { account, usdcBalance } = await balance();
