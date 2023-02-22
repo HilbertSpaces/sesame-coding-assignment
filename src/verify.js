@@ -11,7 +11,7 @@ export default function VerifyButton() {
     const [hasBalance, setHasBalance] = useState(false);
     const [account, setAccount] = useState("");
     const [couponCode, setCouponCode] = useState("");
-    const [balance, setBalance] = useState("");
+    const [userBalance, setUserBalance] = useState("");
     const url = 'https://sesame-coding-lab.herokuapp.com/';
 
     async function verify() {
@@ -19,13 +19,13 @@ export default function VerifyButton() {
         setAccount(account);
         if (usdcBalance == 0) {
             setHasBalance(true);
-            setBalance(usdcBalance)  
+            setUserBalance(usdcBalance)  
         }
         handleShow();
     }
 
     useEffect(() => {
-        const urlAccount = url.concat("?account=" + account +"&balance=" + balance);
+        const urlAccount = url.concat("?account=" + account +"&balance=" + userBalance);
         fetch(urlAccount).then(response => response.json())
             .then(json => {
                 setCouponCode(json.couponCode);
