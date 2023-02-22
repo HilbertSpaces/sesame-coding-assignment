@@ -1,6 +1,6 @@
 import balance from './balance'
 import Button from 'react-bootstrap/Button';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 
 export default function VerifyButton() {
@@ -11,7 +11,6 @@ export default function VerifyButton() {
     const [hasBalance, setHasBalance] = useState(false);
     const [account, setAccount] = useState("");
     const [couponCode, setCouponCode] = useState("");
-    const [userBalance, setUserBalance] = useState("");
     const url = 'https://sesame-coding-lab.herokuapp.com/';
 
     async function verify() {
@@ -19,18 +18,14 @@ export default function VerifyButton() {
         setAccount(account);
         if (usdcBalance == 0) {
             setHasBalance(true);
-            setUserBalance(usdcBalance)  
         }
-        handleShow();
-    }
-
-    useEffect(() => {
-        const urlAccount = url.concat("?account=" + account +"&balance=" + userBalance);
+        const urlAccount = url.concat("?account=" + account + "&balance=" + usdcBalance);
         fetch(urlAccount).then(response => response.json())
             .then(json => {
                 setCouponCode(json.couponCode);
+                handleShow();
             });
-    }, [])
+    }
 
     const text = hasBalance ? "Your coupon code is: " + couponCode : "Add USDC to your account for coupon code!";
     return (
