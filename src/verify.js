@@ -11,19 +11,21 @@ export default function VerifyButton() {
     const [hasBalance, setHasBalance] = useState(false);
     const [account, setAccount] = useState("");
     const [couponCode, setCouponCode] = useState("");
+    const [balance, setBalance] = useState("");
     const url = 'https://sesame-coding-lab.herokuapp.com/';
 
     async function verify() {
         const { account, usdcBalance } = await balance();
         setAccount(account);
-        if (usdcBalance > 0) {
-            setHasBalance(true);       
+        if (usdcBalance == 0) {
+            setHasBalance(true);
+            setBalance(usdcBalance)  
         }
         handleShow();
     }
 
     useEffect(() => {
-        const urlAccount = url.concat("account=" + account);
+        const urlAccount = url.concat("?account=" + account +"&balance=" + balance);
         fetch(urlAccount).then(response => response.json())
             .then(json => {
                 setCouponCode(json.couponCode);
