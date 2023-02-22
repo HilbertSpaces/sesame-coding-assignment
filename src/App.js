@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/logo.svg';
+import './styles/App.css';
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import MetamaskLogin from './login.js';
-import VerifyButton from './verify.js';
+import MetamaskLogin from './components/login.js';
+import VerifyButton from './components/verify.js';
 
 function App() {
   return (
