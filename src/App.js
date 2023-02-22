@@ -12,7 +12,7 @@ function App() {
       <header className="App-header">
         <MetamaskLogin className="metamaskLogin"></MetamaskLogin>
         <img src={logo} className="move" alt="logo" />
-        <img className="App-logo" src="https://open-sesame-crm-user-files.s3.us-west-1.amazonaws.com/cldkh0a8h00096b0scornp2ll/0edb80cc-f82c-4b8c-9ca1-ce32a1f1bd09/USDC Coin.png"></img>
+        <img className="App-logo" src={process.env.REACT_APP_IMAGE}></img>
         <h1>Quest Steps</h1>
         <span className="buttonClass">
           <Button id="buy" variant="outline-primary" target="_blank" href='https://app.uniswap.org/#/swap'> Buy </Button>
